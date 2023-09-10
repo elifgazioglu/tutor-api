@@ -51,6 +51,7 @@ export const login = async (req, res, next) => {
     res
       .cookie("accessToken", token, {
         secure: false,
+        sameSite: "none",
       })
       .status(200)
       .send(info);
@@ -73,6 +74,7 @@ export const getEmail = async (req, res) => {
 export const logout = async (req, res) => {
   res
     .clearCookie("accessToken", {
+      sameSite: "none",
       secure: false,
     })
     .status(200)
