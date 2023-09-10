@@ -50,8 +50,7 @@ export const login = async (req, res, next) => {
     const { password, ...info } = user._doc; //password = password, the rest of the "user" information is passed to the "info"
     res
       .cookie("accessToken", token, {
-        secure: false,
-        sameSite: "none",
+        sameSite: "Lax",
       })
       .status(200)
       .send(info);
@@ -74,8 +73,7 @@ export const getEmail = async (req, res) => {
 export const logout = async (req, res) => {
   res
     .clearCookie("accessToken", {
-      sameSite: "none",
-      secure: false,
+      sameSite: "Lax",
     })
     .status(200)
     .send("User has been logged out.");
