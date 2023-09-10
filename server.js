@@ -12,9 +12,10 @@ import path from "path";
 import slugify from "slugify";
 import { fileURLToPath } from "url";
 
+dotenv.config();
+
 const PORT = process.env.PORT;
 const app = express();
-dotenv.config();
 
 app.use(express.json());
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
